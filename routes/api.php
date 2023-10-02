@@ -16,7 +16,8 @@ use App\Http\Controllers;
 */
 Route::post('register', [Controllers\UserController::class, 'register']);
 Route::post('login', [Controllers\UserController::class, 'login']);
-Route::post('buy', [Controllers\ProductController::class, 'buy']);
+Route::middleware('auth:sanctum')->post('buy', [Controllers\ProductController::class, 'buy']);
+Route::middleware('auth:sanctum')->post('buys', [Controllers\ProductController::class, 'buyedProduct']);
 Route::resource('products', Controllers\ProductController::class);
 Route::resource('sponsor', Controllers\SponsorController::class);
 Route::middleware('auth:sanctum')->post('points', [Controllers\PointsController::class, "addPoints"]);

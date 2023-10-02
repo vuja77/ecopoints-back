@@ -74,11 +74,19 @@ class ProductController extends Controller
     }
     public function buy(Request $request)
     {
-        $validate = $request->validate([
-        "product_id" => "",
-        "user_id" => "",
-      
-        ]);
-        Buy::create([ "product_id" => 1,"user_id" => 1]);
+        
+        $id = $request->user()->id;
+        $product_id = $request->input("product_id");
+       
+       Buy::create([ "product_id" => $product_id,"user_id" => $id]);
+    }
+
+    public function buyedProduct(Request $request)
+    {
+        $id = $request->user()->id;
+        $product_id = $request->input("product_id");
+       
+       return Buy::join("products", "buys.product_id", "=", "products.id")->
+       where("product_id", "=", $product_id)->where("user_id", "=", $id)->get(["products.*"]);
     }
 }
