@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Buy;
 use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
@@ -70,5 +71,14 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function buy(Request $request)
+    {
+        $validate = $request->validate([
+        "product_id" => "",
+        "user_id" => "",
+      
+        ]);
+        Buy::create([ "product_id" => 1,"user_id" => 1]);
     }
 }

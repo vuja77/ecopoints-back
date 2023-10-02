@@ -24,7 +24,7 @@ class UserController extends Controller
         $validatedData['password'] = bcrypt($request->password);
         $user = User::create($validatedData);
          $token = $user->createToken('token-name')->plainTextToken;
-        return "vjua";
+         return response()->json(['access_token' => $token]);
     }
     public function login(Request $request)
     {
