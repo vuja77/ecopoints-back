@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer("points");
             $table->string("shop");
             $table->string("details");
+            $table->string("category")->default("all");
             $table->string("photo")->default("default.png");
 
             $table->timestamps();

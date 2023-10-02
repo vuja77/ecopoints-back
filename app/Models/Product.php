@@ -13,6 +13,7 @@ class Product extends Model
         'shop',
         'points',
         'details',
+        'category',
        
     ];
 }

@@ -36,6 +36,7 @@ class ProductController extends Controller
             "shop" => "",
             "points" => "",
             "details" => "",
+            "category" => ""
         ]);
         Product::create($validate);
     }
@@ -87,6 +88,6 @@ class ProductController extends Controller
         $product_id = $request->input("product_id");
        
        return Buy::join("products", "buys.product_id", "=", "products.id")->
-       where("product_id", "=", $product_id)->where("user_id", "=", $id)->get(["products.*"]);
+       where("user_id", "=", $id)->get(["products.*"]);
     }
 }

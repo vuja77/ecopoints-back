@@ -24,5 +24,5 @@ Route::middleware('auth:sanctum')->post('points', [Controllers\PointsController:
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
-    //return $request->user();
+    return $request->user();
 });

@@ -13,3 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\QrController;
+
+Route::get('/generate-qrcode', [QrController::class, 'generateQRCode']);
