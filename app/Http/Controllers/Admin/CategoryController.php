@@ -28,7 +28,7 @@ class CategoryController extends Controller
     public function create()
     {
 
-        return view('admin.Products.create');
+        return view('admin.Category.create');
     }
 
     /**
@@ -36,14 +36,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('photos');
-            $product = new Product($request->all());
-            $product->photo = $path;
-            $product->save();
-        } else {
-            Product::create($request->all());
-        }
+       
+            Category::create($request->all());
 
         return redirect()->route('product-index');
     }
