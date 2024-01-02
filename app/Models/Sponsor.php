@@ -11,7 +11,7 @@ class Sponsor extends Model
     protected $fillable = [
         'name',
         'location',
-        'points',
-        'shop',
+        'description',
+        'logo',
     ];
 }

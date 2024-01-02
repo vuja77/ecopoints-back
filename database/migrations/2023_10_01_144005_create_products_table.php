@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->integer("points");
-            $table->string("shop");
             $table->string("details");
-            $table->string("category")->default("all");
+            $table->float("price");
+            $table->integer("discount")->default(0);
+            $table->foreignId('category_id')->constrained()->onDelete("cascade");
+            $table->foreignId('sponsor_id')->constrained()->onDelete("cascade");
             $table->string("photo")->default("default.png");
-
             $table->timestamps();
         });
     }

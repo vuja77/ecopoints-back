@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -43,5 +43,17 @@ class UserController extends Controller
         $token = $user->createToken('token-name')->plainTextToken;
 
         return response()->json(['access_token' => $token]);
+    }
+
+    public function sendEmail()
+    {
+        $to = 'djordjijevujovic210306@gmail.com'; // Recipient's email address
+        $subject = 'Test Email'; // Email subject
+        $message = 'This is a test email from the Laravel application.'; // Email message content
+
+        // Use the Mail facade to send an email
+        Mail::to($to)->send(new \App\Mail\TestEmail($subject, $message));
+
+        return "Email sent!";
     }
 }
