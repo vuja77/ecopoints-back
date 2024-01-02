@@ -37,9 +37,18 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
        
+
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('photos');
+            $product = new Category($request->all());
+            $product->photo = $path;
+            $product->save();
+        } else {
             Category::create($request->all());
 
+        }
         return redirect()->route('product-index');
+
     }
 
     /**

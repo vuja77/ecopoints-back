@@ -14,7 +14,8 @@
             <label for="name" class="form-label">Naziv Kategorije</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Unesite naziv kategorije...">
         </div>
-
+        <x-adminlte-input-file name="photo" label="Fotografija" placeholder="Otpremite fotografiju..."
+                               disable-feedback/>
         
 
         
