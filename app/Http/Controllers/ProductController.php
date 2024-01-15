@@ -15,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        return Product::join('sponsors', 'products.sponsor_id', '=', 'sponsors.id')
+    ->select('products.*', 'sponsors.name as sponsor_name','sponsors.location')
+    ->get();
     }
 
     /**

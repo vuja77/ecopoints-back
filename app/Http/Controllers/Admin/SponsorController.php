@@ -76,15 +76,15 @@ class SponsorController extends Controller
         if ($request->hasFile('photo')) {
 
             $path = $request->file('photo')->store('photos');
-            Storage::delete($sponsor->image_url);
+           
 
-            $sponsor->image_url = $path;
-            $sponsor->sponsor_name = $request->sponsor_name;
+            $sponsor->logo = $path;
+            $sponsor->name = $request->sponsor_name;
             $sponsor->description = $request->description;
-            $sponsor->price = $request->price;
-            $sponsor->dietary_restrictions = $request->dietary_restrictions;
+            
+      
 
-            $sponsor->update();
+            $sponsor->update($request->all());
         } else {
             $sponsor->update($request->all());
         }

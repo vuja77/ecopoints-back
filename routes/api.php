@@ -21,7 +21,7 @@ Route::resource('categories', Controllers\CategoryController::class,);
 Route::resource('products', Controllers\ProductController::class);
 Route::resource('sponsor', Controllers\SponsorController::class);
 Route::resource('qrcodes', Controllers\ScanQrcodeController::class);
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/userInf', function (Request $request) {
     return $request->user();
 });
 
