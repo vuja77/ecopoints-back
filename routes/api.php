@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', [Controllers\UserController::class, 'register']);
 Route::post('login', [Controllers\UserController::class, 'login']);
 Route::get('sendMail', [Controllers\UserController::class, 'sendEmail']);
-Route::resource('categories', Controllers\CategoryController::class,);
+Route::resource('categories', Controllers\CategoryController::class);
 Route::resource('products', Controllers\ProductController::class);
 Route::resource('sponsor', Controllers\SponsorController::class);
 Route::resource('qrcodes', Controllers\ScanQrcodeController::class);
