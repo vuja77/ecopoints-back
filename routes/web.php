@@ -59,13 +59,13 @@ Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(f
     Route::delete('category/{id}', 'destroy')->name('category-destroy');
 });
 Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {
-    Route::get('user', 'index')->name('user-index');
-    Route::get('user/new', 'create')->name('user-create');
-    Route::get('user/{id}', 'show')->name('user-show');
-    Route::get('user/edit/{id}', 'edit')->name('user-edit');
-    Route::post('user/update/{id}', 'update')->name('user-update');
-    Route::post('user/new', 'store')->name('user-store');
-    Route::delete('user/{id}', 'destroy')->name('user-destroy');
+    Route::get('users', 'index')->name('user-index');
+    Route::get('users/new', 'create')->name('user-create');
+    Route::get('users/{id}', 'show')->name('user-show');
+    Route::get('users/edit/{id}', 'edit')->name('user-edit');
+    Route::post('users/update/{id}', 'update')->name('user-update');
+    Route::post('users/new', 'store')->name('user-store');
+    Route::delete('users/{id}', 'destroy')->name('user-destroy');
 });
 Route::controller(App\Http\Controllers\Admin\PurchasedProductController::class)->group(function () {
     Route::get('PurchasedProduct', 'index')->name('PurchasedProduct-index');
